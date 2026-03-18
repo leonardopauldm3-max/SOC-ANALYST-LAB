@@ -3,7 +3,7 @@
 ## Sobre mí
 Abogado en transición hacia ciberseguridad (Blue Team).
 
-## bjetivo
+## Objetivo
 Convertirme en analista SOC en 9 meses.
 
 ## Primer análisis de tráfico
