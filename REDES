@@ -45,3 +45,7 @@ Comandos esenciales para investigar conexiones y conectividad:
 * `nslookup [dominio]`: Consultar qué IP tiene una página web.
 * `tracert` / `traceroute`: Ver todos los saltos (routers) que da un paquete hasta su destino.
 * `netstat -an`: Ver qué puertos tienes abiertos y quién está conectado a tu PC
+* **DHCP (Dynamic Host Configuration Protocol):** Protocolo que asigna automáticamente direcciones IP, Máscaras de Subred y Gateways a los dispositivos. 
+
+* **Proceso DORA:** Discover, Offer, Request, Acknowledgment.
+* **Relevancia SOC:** Crucial para la trazabilidad de incidentes (identificar qué usuario tenía qué IP en un momento dado) y para detectar servidores DHCP no autorizados (Rogue DHCP).
