@@ -1,0 +1,47 @@
+# Ruta de Aprendizaje: Analista SOC - Módulo 1: Redes
+
+Este repositorio contiene la síntesis técnica de los fundamentos de redes necesarios para la detección y respuesta ante incidentes de ciberseguridad.
+
+## 1. El Modelo OSI (El Mapa de Interconexión)
+El modelo OSI divide la comunicación en 7 capas. Como analista, lo usamos para localizar dónde ocurre una falla o un ataque.
+
+* **Capa 1 (Física):** Cables, fibra óptica y tarjetas de red. Es el hardware puro.
+* **Capa 2 (Enlace de Datos):** Aquí se usan las direcciones **MAC** (identificador físico de la tarjeta). El dispositivo clave es el **Switch**.
+* **Capa 3 (Red):** Aquí vive el direccionamiento **IP**. El **Router** decide el mejor camino para los paquetes.
+* **Capa 4 (Transporte):** Define cómo se envían los datos.
+    * **TCP:** Confiable, reenvía datos si se pierden (ej. Web).
+    * **UDP:** Rápido, no verifica si llegaron (ej. Videojuegos).
+* **Capa 7 (Aplicación):** Lo que ve el usuario (Navegador, HTTP, DNS, SSH).
+
+## 2. Direccionamiento y Puertos
+Para rastrear a un atacante, necesitamos coordenadas exactas.
+
+* **IP Pública:** Tu identidad única en todo el internet.
+* **IP Privada:** Direcciones internas que no se ven desde afuera (ej. 192.168.x.x).
+* **Puertos Lógicos:** Son las "puertas" de entrada a servicios específicos (0 - 65535).
+    * **SSH (22):** Acceso remoto (objetivo crítico de ataques).
+    * **DNS (53):** Traductor de nombres de dominio.
+    * **HTTP (80) / HTTPS (443):** Tráfico de páginas web.
+
+## 3. Protocolos Críticos
+* **ARP:** Traduce IPs a direcciones MAC. Los hackers lo usan para interceptar tráfico interno.
+* **DNS:** El "directorio telefónico" de internet que traduce nombres a números IP.
+* **DHCP:** Asigna automáticamente direcciones IP a los equipos que entran a la red.
+
+## 4. Segmentación y Subnetting
+Un buen diseño de red evita que un atacante se mueva libremente por la empresa.
+
+* **Máscara de Subred:** Define los límites de la red local. El formato `/24` (255.255.255.0) es el más común.
+* **Default Gateway:** Es la "puerta de salida" (normalmente la IP del router) hacia otras redes.
+* **VLAN:** Segmentación lógica para separar departamentos (ej. separar Contabilidad de Wi-Fi de invitados).
+* **DMZ (Zona Desmilitarizada):** Zona aislada para servidores web que evita que un hacker salte a la red interna sensible.
+* **NAT (Network Address Translation):** Oculta las IPs internas de la empresa tras una única IP pública.
+
+## 5. Herramientas y Comandos de Diagnóstico
+Comandos esenciales para investigar conexiones y conectividad:
+
+* `ip addr` (Linux) / `ipconfig` (Windows): Ver tu configuración de red.
+* `ping [IP]`: Verificar si un equipo responde.
+* `nslookup [dominio]`: Consultar qué IP tiene una página web.
+* `tracert` / `traceroute`: Ver todos los saltos (routers) que da un paquete hasta su destino.
+* `netstat -an`: Ver qué puertos tienes abiertos y quién está conectado a tu PC
